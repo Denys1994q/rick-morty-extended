@@ -1,0 +1,36 @@
+<div class='searchPanel'>
+    <div class='searchInput'>
+        <input
+            type='text'
+            placeholder='Filter by name...'
+            (input)="getValue($event)"
+        />
+    </div>
+    <form class='searchPanel__secondary'>
+            <mat-form-field appearance="outline" class="select-wrapper">
+                <mat-label class="select-label">Status</mat-label>
+                <mat-select [(ngModel)]="selectedStatus" name="status" (selectionChange)="onStatusChange($event)">
+                  <mat-option *ngFor="let status of statusArr" [value]="status.value" >
+                    {{status.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="select-wrapper">
+                <mat-label class="select-label">Gender</mat-label>
+                <mat-select [(ngModel)]="selectedGender" name="gender" (selectionChange)="onGenderChange($event)">
+                  <mat-option *ngFor="let gender of gendersArr" [value]="gender.value" >
+                    {{gender.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="select-wrapper">
+                <mat-label class="select-label">Species</mat-label>
+                <mat-select [(ngModel)]="selectedSpecie" name="specie" (selectionChange)="onSpecieChange($event)">
+                  <mat-option *ngFor="let specie of speciesArr" [value]="specie.value" >
+                    {{specie.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+</div>
+            

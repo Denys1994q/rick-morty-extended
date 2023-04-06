@@ -1,0 +1,7 @@
+<mat-paginator class="wrapper"
+[length]='totalChars'
+[pageSize]="20"
+[showFirstLastButtons]="true"
+[hidePageSize]="true"
+(page)="handlePageEvent($event)"
+></mat-paginator>

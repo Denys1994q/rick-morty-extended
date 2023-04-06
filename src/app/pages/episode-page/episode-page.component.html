@@ -1,0 +1,6 @@
+<section class="episode">
+    <h1 class="episode__title">{{episode && episode.name}}</h1>
+    <h2 class="episode__date">{{episode && episode.air_date}}</h2>
+    <h2>Characters: </h2>
+    <app-chars-panel [chars]="chars" [loading]="loading" [error]="error"></app-chars-panel>
+</section>

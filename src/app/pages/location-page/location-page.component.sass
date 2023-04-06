@@ -1,0 +1,50 @@
+@import '../../../mixins.sass'
+
+.location
+    margin-top: 2rem
+.locationPanel
+    display: flex
+    flex-wrap: wrap
+    gap: 2rem
+    @include respond(phoneL)
+        gap: 0
+.titles
+    padding: .5rem
+    width: 20rem
+    @include respond(tab-land)
+        width: 100%
+    ul
+        @include respond(tab-land)
+            display: flex
+            flex-wrap: wrap
+        li
+            padding: .2rem .5rem
+            font-size: 1.6rem
+            cursor: pointer
+            margin-bottom: .5rem
+            &:hover
+                background: #0b4215
+                color: white
+.chars
+    padding: .5rem
+    width: 80rem
+    ul
+        padding: 1rem
+        margin-top: 1rem
+        display: flex
+        flex-wrap: wrap
+        gap: 1rem
+        max-height: 60rem
+        img
+            cursor: pointer
+            width: 10rem
+            &:hover
+                transform: scale(110%)
+                transition: all .4s ease
+    &__item
+        margin-top: 1rem
+        font-size: 1.6rem
+        font-weight: bold
+.active
+    background: #0b4215
+    color: white

@@ -1,0 +1,54 @@
+@import '../../../mixins.sass'
+
+.searchPanel
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    gap: 1rem
+    &__secondary
+        width: 45rem
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+.searchInput
+    position: relative
+    width: 60rem
+    height: 5.5rem
+    input
+        display: block
+        width: 100%
+        border: 1px solid #3b8f93
+        font-size: 1.6rem
+        padding: 1.7rem
+        border-radius: .4rem
+        padding-left: 5rem
+        &::placeholder
+            color: rgba(0, 0, 0, 0.5)
+    &::before
+        position: absolute
+        top: 50%
+        left: 2rem
+        transform: translate(0, -50%)
+        content: ''
+        width: 1.75rem
+        height: 1.75rem
+        background: url('../../../assets/search_icon.svg')
+        display: block
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled)
+    background: #3b8f93
+::ng-deep .mdc-menu-surface
+    background: #3b8f93
+::ng-deep .mat-mdc-select-value
+    color: #3b8f93
+.select-wrapper
+    margin-right: 1rem
+    width: 13rem
+    @include respond(phoneL)
+        width: 11rem
+    @include respond(phoneM)
+        width: 14rem
+.select-label
+    color: #3b8f93
+::ng-deep .mat-mdc-option .mdc-list-item__primary-text
+    color: white

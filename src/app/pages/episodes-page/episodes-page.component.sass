@@ -1,0 +1,48 @@
+@import '../../../mixins.sass'
+
+.episodes
+    margin-top: 2rem
+.search
+    &__input
+        width: 30rem
+.list
+    font-size: 1.8rem
+    max-width: 65rem
+    margin: .5rem auto
+    @include respond(tab-port)
+        font-size: 1.6rem
+.episode
+    padding-left: 3rem
+    position: relative
+    &::before
+        content: ''
+        display: block
+        width: 7px
+        height: 7px
+        background: #00897b
+        border-radius: 50%
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translate(0, -50%)
+    &:hover
+        &::before
+            background: #004d40
+    &__content
+        display: flex
+        justify-content: space-between
+        gap: 10rem
+    &__text
+        cursor: pointer
+        color: #0b4215
+        &:hover
+            font-weight: bold
+    &__date
+        font-size: 1.8rem
+        @include respond(phoneL)
+            display: none
+
+::ng-deep .episodes .mdc-text-field--filled:not(.mdc-text-field--disabled)
+    background: none
+::ng-deep .mat-mdc-form-field-flex
+    padding-right: 10px

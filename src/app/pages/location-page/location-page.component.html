@@ -1,0 +1,29 @@
+<section class="location">
+    <app-pagination-panel [totalChars]="totalLocations" (pageIndexEvent)="receivePageIndex($event)"></app-pagination-panel>
+    <div class="locationPanel">
+        <div class="titles">
+            <ul>
+                <li *ngFor="let location of locations; let i = index" [class.active]='i === activeLocation' (click)="getActiveLocation(i)">
+                    {{location.name}}
+                </li>
+            </ul>
+        </div>
+        <div class="chars">
+            <mat-tab-group>
+                <mat-tab label="Residents"> 
+                    <div *ngIf="loading; else charsBlock"><mat-spinner style="width: 50px;"></mat-spinner></div>
+                    <ng-template #charsBlock>
+                        <p class="chars__item">Found {{chars.length}} residents</p>
+                            <ul >
+                                <li *ngFor="let char of chars" [routerLink]="['/chars', char.id]">
+                                    <img src={{char.image}} alt="char-image">
+                                </li>
+                            </ul>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="Type"><p class="chars__item">{{(locations.length > 0 && activeLocation >= 0) && locations[activeLocation].type}}</p></mat-tab>
+                <mat-tab label="Dimension"><p class="chars__item">{{(locations.length > 0 && activeLocation >= 0) && locations[activeLocation].dimension}}</p></mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</section>

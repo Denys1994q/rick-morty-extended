@@ -1,0 +1,8 @@
+<section class='characters'>
+    <div class='characters__logo'>
+        <img src='../../assets/logo.png' alt='ricky-motry-logo' />
+    </div>
+    <app-search-panel (searchValueEvent)="receiveSearchValue($event)" (statusValueEvent)="receiveStatusValue($event)" (genderValueEvent)="receiveGenderValue($event)" (specieValueEvent)="receiveSpecieValue($event)"></app-search-panel>
+    <app-pagination-panel [totalChars]="totalChars" (pageIndexEvent)="receivePageIndex($event)"></app-pagination-panel>
+    <app-chars-panel [chars]="chars" [loading]="loading" [error]="error"></app-chars-panel>
+</section>

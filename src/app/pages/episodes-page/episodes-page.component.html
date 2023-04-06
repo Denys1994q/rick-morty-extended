@@ -1,0 +1,26 @@
+<section class="episodes">
+    <div class="search">
+        <mat-form-field class="search__input">
+            <mat-label>Episode name</mat-label>
+            <input matInput type="text" [(ngModel)]="value" (input)="getSearchValue($event)">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+    <app-pagination-panel [totalChars]="totalEpisodes" (pageIndexEvent)="receivePageIndex($event)"></app-pagination-panel>
+    <div *ngIf="loading; else cardBlock"><mat-spinner color="accent"></mat-spinner></div>
+    <ng-template #cardBlock>
+        <h2 *ngIf="error; else charsList">Nothing found</h2>
+        <ng-template #charsList>
+            <ul class="list">
+                <li *ngFor="let episode of episodes" class="episode">
+                    <div class="episode__content">
+                        <p [routerLink]="['/episodes', episode.id]" class="episode__text">"{{episode.name}}"</p>
+                        <p class="episode__date">{{episode.air_date}}</p>
+                    </div>
+                </li>
+            </ul>
+        </ng-template>
+    </ng-template>
+</section>

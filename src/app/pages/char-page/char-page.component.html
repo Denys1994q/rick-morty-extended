@@ -1,0 +1,40 @@
+<section class='character'>
+    <div class='character__btnwrapper'>
+        <a (click)="back()" class="btnRoute btnRoute-arrowBefore">go back</a>
+    </div>
+    <div *ngIf="!char; else cardBlock"><mat-spinner color="accent"></mat-spinner></div>
+    <ng-template #cardBlock>
+        <div class='char'>
+            <div class='char__photo'>
+                <img src={{char?.image}} alt='char-photo' />
+            </div>
+            <p class='char__title'>{{char?.name}}</p>
+            <div class='infoBlock'>
+                <p class='infoBlock__name'>Informations</p>
+                <ul>
+                    <li class='infoBlock__item'>
+                        <p class='infoBlock__itemTitle'>Gender</p>
+                        <p class='infoBlock__itemText'>{{char?.gender}}</p>
+                    </li>
+                    <li class='infoBlock__item'>
+                        <p class='infoBlock__itemTitle'>Status</p>
+                        <p class='infoBlock__itemText'>{{char?.status}}</p>
+                    </li>
+                    <li class='infoBlock__item'>
+                        <p class='infoBlock__itemTitle'>Specie</p>
+                        <p class='infoBlock__itemText'>{{char?.species}}</p>
+                    </li>
+                    <li class='infoBlock__item'>
+                        <p class='infoBlock__itemTitle'>Origin</p>
+                        <p class='infoBlock__itemText'>{{char?.origin?.name}}</p>
+                    </li>
+                    <li class='infoBlock__item'>
+                        <p class='infoBlock__itemTitle'>Type</p>
+                        <p *ngIf='!char?.type; else typeBlock' class='infoBlock__itemText'>Unknown</p>
+                        <ng-template #typeBlock><p class='infoBlock__itemText'>{{char?.type}}</p></ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</section>

@@ -1,0 +1,17 @@
+<div *ngIf="loading; else cardBlock"><mat-spinner color="accent"></mat-spinner></div>
+<ng-template #cardBlock>
+    <h2 *ngIf="error; else charsList">Nothing found</h2>
+    <ng-template #charsList >
+        <ul class='cardsBox'>
+            <li *ngFor="let char of chars" [routerLink]="['/chars', char.id]">
+                <div class='card'>
+                    <img src={{char.image}} class='card__img' alt='character_image' />
+                    <div class='card__info'>
+                        <p class="card__title">{{char.name}}</p>
+                        <p class='card__subtitle'>{{char.species}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </ng-template>
+</ng-template>

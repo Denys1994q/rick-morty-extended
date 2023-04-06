@@ -1,0 +1,26 @@
+.header
+    position: fixed
+    width: 100%
+    padding: 5px
+    background: rgb(255, 255, 255)
+    border-bottom: 1px solid rgba(46, 41, 51, 0.08)
+    z-index: 2
+    nav
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__logo
+        width: 100px
+        background: red
+    &__list
+        margin-right: 5rem
+        display: flex
+        gap: 1rem
+        font-size: 1.8rem
+        font-weight: bold
+        li
+            padding: .5rem
+            cursor: pointer
+            &:hover
+                color: orange
+                transition: all .2s ease

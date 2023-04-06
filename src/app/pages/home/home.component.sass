@@ -1,0 +1,14 @@
+@import '../../../mixins.sass'
+
+.characters
+    &__logo
+        text-align: center
+        margin: 2rem 0 1rem 0
+        img
+            width: 60rem
+            height: 20rem
+            object-fit: contain
+            @include respond(phoneL)
+                height: 15rem
+            @include respond(phoneM)
+                height: 10rem
